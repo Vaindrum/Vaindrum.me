@@ -1,9 +1,8 @@
 'use client'
-
 import { cn } from "@/lib/utils";
 import { BackgroundGradientAnimation } from "./GradientBg";
 import { GlobeDemo } from "./GridGlobe";
-import { div } from "motion/react-client";
+import { motion } from "framer-motion";
 import Lottie from "react-lottie";
 import { useState } from "react";
 import animationData from "@/data/confetti.json";
@@ -100,7 +99,7 @@ export const BentoGridItem = ({
       {/* Gradient background for id 6 */}
       {id === 6 && (
         <BackgroundGradientAnimation>
-          <div className="absolute z-50 flex items-center justify-center text-white font-bold"/>
+          {/* <div className="absolute z-50 flex items-center justify-center text-white font-bold"/> */}
         </BackgroundGradientAnimation>
       )}
 
