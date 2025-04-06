@@ -13,17 +13,17 @@ export const TextGenerateEffect = ({
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (typeof window === 'undefined' || !containerRef.current) return;
+  // useEffect(() => {
+  //   if (typeof window === 'undefined' || !containerRef.current) return;
     
-    const spans = containerRef.current.querySelectorAll<HTMLSpanElement>('.animate-text');
-    spans.forEach((span, index) => {
-      setTimeout(() => {
-        span.classList.remove('opacity-0');
-        span.style.filter = filter ? 'blur(0px)' : 'none';
-      }, index * 200);
-    });
-  }, [filter]);
+  //   const spans = containerRef.current.querySelectorAll<HTMLSpanElement>('.animate-text');
+  //   spans.forEach((span, index) => {
+  //     setTimeout(() => {
+  //       span.classList.remove('opacity-0');
+  //       span.style.filter = filter ? 'blur(0px)' : 'none';
+  //     }, index * 200);
+  //   });
+  // }, [filter]);
 
   const renderWords = () => {
     return (
