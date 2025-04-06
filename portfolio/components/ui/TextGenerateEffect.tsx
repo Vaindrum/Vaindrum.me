@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 
 export const TextGenerateEffect = ({
@@ -11,8 +11,12 @@ export const TextGenerateEffect = ({
   className?: string;
   filter?: boolean;
 }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    const spans = document.querySelectorAll<HTMLSpanElement>('.animate-text');
+    if (typeof window === 'undefined' || !containerRef.current) return;
+    
+    const spans = containerRef.current.querySelectorAll<HTMLSpanElement>('.animate-text');
     spans.forEach((span, index) => {
       setTimeout(() => {
         span.classList.remove('opacity-0');
@@ -44,7 +48,7 @@ export const TextGenerateEffect = ({
   };
 
   return (
-    <div className={cn("font-bold", className)} suppressHydrationWarning>
+    <div className={cn("font-bold", className)} suppressHydrationWarning ref={containerRef}>
       <div className="my-4">
         <div className="leading-snug tracking-wide" suppressHydrationWarning>
           {renderWords()}

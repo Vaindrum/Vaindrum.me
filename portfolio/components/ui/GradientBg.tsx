@@ -2,6 +2,14 @@
 import { cn } from "@/lib/utils";
 import { useEffect, useRef, useState } from "react";
 
+// Safely check if we're in a browser environment
+const isBrowser = typeof window !== 'undefined';
+
+const checkIsSafari = () => {
+  if (!isBrowser) return false;
+  return /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+};
+
 type GradientBackgroundAnimationProps = {
   gradientBackgroundStart?: string;
   gradientBackgroundEnd?: string;
@@ -43,6 +51,8 @@ export const BackgroundGradientAnimation = ({
   const [tgY, setTgY] = useState(0);
 
   useEffect(() => {
+    if (!isBrowser) return;
+    
     document.body.style.setProperty(
       "--gradient-background-start",
       gradientBackgroundStart
@@ -97,7 +107,7 @@ export const BackgroundGradientAnimation = ({
 
   const [isSafari, setIsSafari] = useState(false);
   useEffect(() => {
-    setIsSafari(/^((?!chrome|android).)*safari/i.test(navigator.userAgent));
+    setIsSafari(checkIsSafari());
   }, []);
 
   return (
