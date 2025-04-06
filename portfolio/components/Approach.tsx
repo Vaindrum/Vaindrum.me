@@ -118,7 +118,7 @@ const AceternityIcon = ({order}: {order: string}) => {
   );
 };
  
-const Icon = ({ className, ...rest }: any) => {
+const Icon = ({ className, ...rest }: { className?: string; [key: string]: unknown }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
