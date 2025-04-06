@@ -4,10 +4,10 @@ import { FaLocationArrow } from 'react-icons/fa'
 import { socialMedia } from '@/data'
 const Footer = () => {
   return (
-    <footer className='w-[95%] mx-auto pt-20 pb-10' id='contact'>
-        <div className='w-full absolute left-0 -bottom-72 min-h-96'>
+    <footer className='w-full mb-[100px] md:mb-5 pb-10' id='contact'>
+        {/* <div className='w-full absolute left-0 -bottom-72 min-h-96'>
             <img src="/footer-grid.svg" alt="grid" className='w-full h-full opacity-50' />
-        </div>
+        </div> */}
         <div className='flex flex-col items-center'>
             <h1 className='heading lg:max-w-[45vw]'>
                 Ready to take <span className='text-purple-300'>your outside digital presence to a new level?</span>
