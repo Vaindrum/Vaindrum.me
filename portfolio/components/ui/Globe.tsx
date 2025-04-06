@@ -237,13 +237,13 @@ export function Globe({ globeConfig, data }: WorldProps) {
 export function WebGLRendererConfig() {
   const { gl, size } = useThree();
 
-  // useEffect(() => {
-  //   if (typeof window === 'undefined') return;
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
     
-  //   gl.setPixelRatio(window.devicePixelRatio);
-  //   gl.setSize(size.width, size.height);
-  //   gl.setClearColor(0xffaaff, 0);
-  // }, [gl, size]);
+    gl.setPixelRatio(window.devicePixelRatio);
+    gl.setSize(size.width, size.height);
+    gl.setClearColor(0xffaaff, 0);
+  }, [gl, size]);
 
   return null;
 }

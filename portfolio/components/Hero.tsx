@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import { Spotlight } from "@/components/ui/Spotlight";
 import MagicButton from './ui/MagicButton';
