@@ -21,8 +21,28 @@ const courgette = Courgette({
 
 export const metadata: Metadata = {
   title: "Vaindrum",
-  description: "Vaibhav's Portfolio",
+  description: "I am Vaibhav Raj, a full stack developer and oss enthusiast. Building web applications, web interfaces and learning over time. Just a  student who enjoys tech.",
+  keywords: ["vaindrum", "Vaindrum", "Vaibhav Raj", "vaibhav raj", "vaibhav portfolio", "vaindrum portfolio", "vaindrum nextjs", "Vaibhav Raj", "Vaindrum portfolio", "Vaindrum nextjs", "Vaibhav Raj portfolio", "Vaibhav Raj nextjs"],
+  authors: [{ name: "Vaibhav Raj", url: "https://github.com/vaindrum" }],
+  icons: {
+    icon: "/favicon2.ico",
+    apple: "/apple-icon.png",
+    shortcut: "/favicon2.ico",
+  },
+  openGraph: {
+    title: "Vaibhav Raj",
+    description: "Full stack developer and oss enthusiast.",
+    url: "https://vaindrum-me.vercel.app",
+    siteName: "Vaibhav Raj || vaindrum",
+    images: [
+      {
+        url: "https://vaindrum-me.vercel.app/apple-icon.png",
+      },
+    ],
+    type: "website",
+  }
 };
+
 
 export default function RootLayout({
   children,
