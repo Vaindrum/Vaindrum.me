@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @theme {
+  --font-courgette: 'Courgette', cursive;
   /* Colors */
   --color-black: #000000;
   --color-black-100: #000319;

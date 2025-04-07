@@ -5,7 +5,14 @@ import MagicButton from './ui/MagicButton';
 import { TextGenerateEffect } from './ui/TextGenerateEffect';
 import { FaLocationArrow } from 'react-icons/fa';
 import { cn } from '@/lib/utils';
+
 const Hero = () => {
+  const logoText = [
+    "Welcome",
+    "to",
+    <span className="font-courgette text-purple-400">Vab<sup className='text-purple-300' style={{ fontStyle: 'italic', fontSize: '0.7em' }}>♩</sup>s</span>
+  ];
+
   return (
     <div className='pb-20'>
       <div>
@@ -32,11 +39,14 @@ const Hero = () => {
       <div className="flex justify-center relative my-20 z-10">
         <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
         <h1 className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80">
-          This is my first time using Next.js
+          Good {new Date().getHours() < 12 ? "Morning" : new Date().getHours() < 18 ? "Afternoon" : "Evening"}! How've you been?
         </h1>
-        <TextGenerateEffect className="text-center text-[40px] md:text-5xl lg:text-6xl whitespace-pre-line" words={"Too Much Radio\nNot Enough Head"}/>
+        <TextGenerateEffect 
+          className="text-center text-[40px] md:text-5xl lg:text-6xl whitespace-pre-line" 
+          words={logoText} 
+        />
         <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">
-          Hi, I&apos;m Vaibhav, a Next.js Developer based in India.
+          Hi, I&apos;m Vaibhav, a Full Stack Developer based in India.
         </p>
         <a href="#about">
         <MagicButton title="Show My Work" icon={<FaLocationArrow />} position="right" />

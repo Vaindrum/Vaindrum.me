@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 
 export const TextGenerateEffect = ({
@@ -7,7 +7,7 @@ export const TextGenerateEffect = ({
   className,
   filter = true,
 }: {
-  words: string;
+  words: string | React.ReactNode | (string | React.ReactNode)[];
   className?: string;
   filter?: boolean;
 }) => {
@@ -20,27 +20,82 @@ export const TextGenerateEffect = ({
     spans.forEach((span, index) => {
       setTimeout(() => {
         span.classList.remove('opacity-0');
-        span.style.filter = filter ? 'blur(0px)' : 'none';
-      }, index * 200);
+        span.classList.add('opacity-100');
+        if (filter) {
+          span.style.transform = 'translateY(0)';
+          span.style.filter = 'blur(0px)';
+        }
+      }, index * 150);
     });
   }, [filter]);
 
   const renderWords = () => {
+    // Handle array of content
+    if (Array.isArray(words)) {
+      return (
+        <div suppressHydrationWarning className="space-x-[0.3em]">
+          {words.map((word, idx) => (
+            <span
+              key={idx}
+              className={cn(
+                "animate-text opacity-0 inline-block",
+                "transition-all duration-700 ease-out",
+                idx > 2 ? "text-purple-300" : "text-black dark:text-white"
+              )}
+              style={{
+                filter: filter ? "blur(8px)" : "none",
+                transform: 'translateY(10px)',
+                transitionProperty: 'opacity, filter, transform'
+              }}
+              suppressHydrationWarning
+            >
+              {word}
+            </span>
+          ))}
+        </div>
+      );
+    }
+    
+    // Handle single JSX element
+    if (typeof words !== 'string') {
+      return (
+        <span
+          className={cn(
+            "animate-text opacity-0 inline-block",
+            "transition-all duration-700 ease-out",
+            "text-black dark:text-white"
+          )}
+          style={{
+            filter: filter ? "blur(8px)" : "none",
+            transform: 'translateY(10px)',
+            transitionProperty: 'opacity, filter, transform'
+          }}
+          suppressHydrationWarning
+        >
+          {words}
+        </span>
+      );
+    }
+
+    // Handle string
     return (
-      <div suppressHydrationWarning>
+      <div suppressHydrationWarning className="space-x-[0.3em]">
         {words.split(/\s+/).map((word, idx) => (
           <span
             key={word + idx}
             className={cn(
-              "animate-text opacity-0 transition-all duration-500",
-              idx > 3 ? "text-purple-300" : "text-black dark:text-white"
+              "animate-text opacity-0 inline-block",
+              "transition-all duration-700 ease-out",
+              idx > 2 ? "text-purple-300" : "text-black dark:text-white"
             )}
             style={{
-              filter: filter ? "blur(10px)" : "none",
+              filter: filter ? "blur(8px)" : "none",
+              transform: 'translateY(10px)',
+              transitionProperty: 'opacity, filter, transform'
             }}
             suppressHydrationWarning
           >
-            {word === "" ? <br /> : word}{" "}
+            {word === "" ? <br /> : word}
           </span>
         ))}
       </div>

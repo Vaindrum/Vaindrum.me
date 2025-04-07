@@ -76,7 +76,7 @@ export const navItems = [
       des: "Cinex is a web application that allows users to log, rate, review their movie experiences and have discussions with other users.",
       img: "/cinex.jpg",
       iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
-      link: "https://github.com/Vaindrum/Cinex-A-movie-logbook-and-discussion-webapp",
+      link: "https://cinex.vercel.app",
     },
     {
       id: 2,
@@ -84,7 +84,7 @@ export const navItems = [
       des: "This is my portfolio website that I created to showcase my projects and skills. It is built with Next.js, TypeScript and Aceternity UI.",
       img: "/portfolio.jpg",
       iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
-      link: "https://github.com/Vaindrum/Vaindrum.me",
+      link: "https://vaindrum-me.vercel.app",
     },
     {
       id: 3,

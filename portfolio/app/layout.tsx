@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Courgette } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./theme-provider";
 
@@ -13,6 +13,12 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const courgette = Courgette({ 
+  weight: ['400'],
+  subsets: ["latin"],
+  variable: '--font-courgette'
+});
+
 export const metadata: Metadata = {
   title: "Vaindrum",
   description: "Vaibhav's Portfolio",
@@ -24,9 +30,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${courgette.variable} antialiased`}
       >
         <ThemeProvider
             attribute="class"
